@@ -8,25 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular is working!';
 
-  getAge(){
-    return (new Date).getFullYear() - this.person.birthdate
+  playlist = {
+    name: "The best List",
+    tracks: 24,
+    color: "#FF0000",
+    favourite: true,
   }
-
-  person = {
-    name: "TOmek",
-    birthdate: 1990,
-    company:{
-      name: "AppComp",
-      city: "Gdańsk"
-    }
-  }
-
-  counter = 0;
-
 
   constructor(){
-    setInterval(()=>{
-      this.counter ++
-    }, 500)
+
   }
 }
