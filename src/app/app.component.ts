@@ -15,6 +15,8 @@ export class AppComponent {
     favourite: true,
   }
 
+  wartosc = true
+
   constructor(){
 
   }
