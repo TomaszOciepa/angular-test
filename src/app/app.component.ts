@@ -6,5 +6,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular2';
+  title = 'angular is working!';
+
+  getAge(){
+    return (new Date).getFullYear() - this.person.birthdate
+  }
+
+  person = {
+    name: "TOmek",
+    birthdate: 1990,
+    company:{
+      name: "AppComp",
+      city: "Gdańsk"
+    }
+  }
+
+  counter = 0;
+
+
+  constructor(){
+    setInterval(()=>{
+      this.counter ++
+    }, 500)
+  }
 }
