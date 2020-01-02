@@ -17,6 +17,9 @@ export class AppComponent {
 
   wartosc = true
 
+  save(event){
+    console.log('Zapisano', event)
+  }
   constructor(){
 
   }

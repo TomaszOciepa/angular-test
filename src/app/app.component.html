@@ -15,9 +15,14 @@
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>The Best list</td>
+            <td> {{ playlist.name }}</td>
             <td>23</td>
-            <td>true</td>
+            <td>
+              <label>
+                <input type="checkbox" [checked]="playlist.favourite" (change)="playlist.favourite = $event.target.checked">
+                Favourite
+            </label>
+            </td>
           </tr>
           <tr>
             <th scope="row">2</th>
@@ -42,7 +47,7 @@
         <div class="card-body">
             <div class="form-group">
               <label>Name:</label>
-              <input type="text" [value]="playlist.name" class="form-control">
+              <input type="text" [value]="playlist.name" (keyup)="playlist.name = $event.target.value" class="form-control">
             </div>
             <div class="form-group">
               <label>Tracks:</label>
@@ -50,13 +55,17 @@
             </div>
             <div class="form-group">
               <label>Color:</label>
-              <input type="color" [value]="playlist.color" class="form-control">
+              <input type="color" [value]="playlist.color" (change)="playlist.color = $event.target.value" class="form-control">
             </div>
             <div class="form-group">
               <label>
-                <input type="checkbox" [checked]="playlist.favourite">
+                <input type="checkbox" [checked]="playlist.favourite" (change)="playlist.favourite = $event.target.checked">
                 Favourite
             </label>
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-success float-xs-right" (click)="save($event)">Zapisz</button>
             </div>
         </div>
 
