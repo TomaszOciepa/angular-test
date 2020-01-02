@@ -19,7 +19,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="border-class" [style.borderBottomColor]="playlist.color" [style.fontSize.px]="size">
+          <tr class="border-class" [class.table-active]="selected == playlist"
+           (click)="selected = playlist" 
+           [style.borderBottomColor]="playlist.color" 
+           [style.fontSize.px]="size">
             <th scope="row">1</th>
             <td> {{ playlist.name }}</td>
             <td>23</td>
@@ -30,7 +33,7 @@
             </label>
             </td>
           </tr>
-          <tr>
+          <tr (click)="selected = null" [class.table-active]="selected == null">
             <th scope="row">2</th>
             <td>My playlist</td>
             <td>12</td>

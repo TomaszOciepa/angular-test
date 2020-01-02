@@ -15,6 +15,8 @@ export class AppComponent {
     favourite: true,
   }
 
+  selected = null
+
   size = 20
   wartosc = true
 
