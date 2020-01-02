@@ -1,6 +1,12 @@
 
 <div class="container">
   <div class="row mt-1">
+    
+    <style>
+      .border-class{
+        border-bottom: 2px solid transparent;
+      }
+    </style>
 
     <div class="col-xs">
       <table class="table table-striped">
@@ -13,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr class="border-class" [style.borderBottomColor]="playlist.color" [style.fontSize.px]="size">
             <th scope="row">1</th>
             <td> {{ playlist.name }}</td>
             <td>23</td>

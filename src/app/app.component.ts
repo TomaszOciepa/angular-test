@@ -15,6 +15,7 @@ export class AppComponent {
     favourite: true,
   }
 
+  size = 20
   wartosc = true
 
   save(event){
