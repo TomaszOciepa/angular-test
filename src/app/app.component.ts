@@ -16,7 +16,7 @@ export class AppComponent {
   } 
 
   edited = {
-    name: ""
+
   }
 
   getPlaylistStyle(playlist){
@@ -28,10 +28,30 @@ export class AppComponent {
     }
   }
 
+  mode = "none"
+
   selected = null;
 
   size = 20
   wartosc = true
+
+  select(playlist){
+    this.mode = "selected"
+    this.selected = playlist
+  }
+
+  createNew(){
+    this.mode = "edit"
+    var newPlaylist ={}
+    this.selected = newPlaylist;
+    this.edited = newPlaylist;
+  }
+
+  edit(playlist){
+    this.mode = "edit"
+    this.edited = playlist
+    this.selected = playlist
+  }
 
   save(event){
     console.log('Zapisano', event)
