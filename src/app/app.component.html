@@ -20,26 +20,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="" [ngClass]="{'table-active': selected == playlist, 'border-class': true}"
-           (click)="select(playlist)" 
+          <tr *ngFor="let playlist of playlists; let i = index"
+          [ngClass]="{'table-active': selected == playlist, 'border-class': true}" 
+          (click)="select(playlist)"
            [ngStyle]="getPlaylistStyle(playlist)">
-            <th scope="row">1</th>
+            <th scope="row">{{ i +1 }}.</th>
             <td> {{ playlist.name }}</td>
-            <td>23</td>
+            <td> {{ playlist.tracks }}</td>
             <td>
               <label>
-                <input type="checkbox" [(ngModel)]="playlist.favourite">
-                Favourite
+                <input type="checkbox" [(ngModel)]="playlist.favourite" (click)="$event.stopPropagation();">
+                Ulubiona
             </label>
             </td>
           </tr>
-          <tr (click)="select(null)" [ngClass]="{'table-active': selected == null}">
-            <th scope="row">2</th>
-            <td>My playlist</td>
-            <td>12</td>
-            <td>false</td>
-          </tr>
-
         </tbody>
       </table>
       <div class="form-group">
@@ -61,11 +55,11 @@
 
         <div class="card" *ngSwitchCase="'selected'">
           <div class="card-body">
-            <h5 class="card-title">Playlista {{ playlist.name}}</h5>
+            <h5 class="card-title">Playlista {{ selected.name}}</h5>
             <p class="card-text">Wybrana playlista</p>
 
             <div class="form-group">
-              <button class="btn btn-success float-xs-right" (click)="edit(playlist)">Edytuj</button>
+              <button class="btn btn-success float-xs-right" (click)="edit(selected)">Edytuj</button>
             </div>
           </div>
         </div>

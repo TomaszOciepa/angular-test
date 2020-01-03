@@ -8,12 +8,20 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular is working!';
 
-  playlist = {
-    name: "The best Listt",
-    tracks: 24,
-    color: "#FF0000",
-    favourite: true,
-  } 
+  playlists = [
+    {
+      name: 'The best List',
+      tracks: 28,
+      color: '#0000FF',
+      favourite: false,
+    } ,
+    {
+      name: 'Moje ulubione',
+      tracks: 24,
+      color: '#FF0000',
+      favourite: true,
+    },
+  ] 
 
   edited = {
 
@@ -36,6 +44,7 @@ export class AppComponent {
   wartosc = true
 
   select(playlist){
+    if(playlist != this.selected)
     this.mode = "selected"
     this.selected = playlist
   }
