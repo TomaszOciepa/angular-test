@@ -13,6 +13,10 @@ export class AppComponent {
     tracks: 24,
     color: "#FF0000",
     favourite: true,
+  } 
+
+  edited = {
+    name: ""
   }
 
   getPlaylistStyle(playlist){
