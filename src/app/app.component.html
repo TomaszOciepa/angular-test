@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="border-class" [class.table-active]="selected == playlist"
+          <tr class="" [ngClass]="{'table-active': selected == playlist, 'border-class': true}"
            (click)="selected = playlist" 
            [style.borderBottomColor]="playlist.color" 
            [style.fontSize.px]="size">
@@ -33,7 +33,7 @@
             </label>
             </td>
           </tr>
-          <tr (click)="selected = null" [class.table-active]="selected == null">
+          <tr (click)="selected = null" [ngClass]="{'table-active': selected == null}">
             <th scope="row">2</th>
             <td>My playlist</td>
             <td>12</td>

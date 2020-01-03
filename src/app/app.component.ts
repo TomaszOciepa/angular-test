@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'angular is working!';
 
   playlist = {
-    name: "The best List",
+    name: "The best Listt",
     tracks: 24,
     color: "#FF0000",
     favourite: true,
