@@ -15,6 +15,15 @@ export class AppComponent {
     favourite: true,
   }
 
+  getPlaylistStyle(playlist){
+    return {
+      // borderBottom: '2px solid transparent',
+      borderBottomStyle: 'solid',
+      borderBottomColor: playlist.color,
+      borderBottomWidth: '4px'
+    }
+  }
+
   selected = null
 
   size = 20
