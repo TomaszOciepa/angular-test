@@ -1,5 +1,6 @@
 <div class="row mt-1">
     <div class="col-xs">
+        <h5>Playlisty</h5>
         <table class="table table-striped">
             <thead>
               <tr>
@@ -35,12 +36,7 @@
 
       <div [ngSwitch]="mode">
 
-        <div class="card"  *ngSwitchDefault>
-          <div class="card-body">
-            <h5 class="card-title">Playlista</h5>
-            <p class="card-text">Wybierz playliste</p>
-          </div>
-        </div>
+        <content-card *ngSwitchDefault></content-card>
 
         <div class="card" *ngSwitchCase="'selected'">
           <div class="card-body">
