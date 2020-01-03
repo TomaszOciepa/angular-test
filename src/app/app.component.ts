@@ -24,7 +24,7 @@ export class AppComponent {
     }
   }
 
-  selected = null
+  selected = null;
 
   size = 20
   wartosc = true

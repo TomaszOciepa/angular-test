@@ -52,22 +52,23 @@
           <p class="card-text">Opis playlisty</p>
         </div>
 
-        <div class="card-body">
+        <div *ngIf="selected != null">
+          <div class="card-body">
             <div class="form-group">
               <label>Name:</label>
-              <input type="text" [(ngModel)]="playlist.name" class="form-control">
+              <input type="text" [(ngModel)]="selected.name" class="form-control">
             </div>
             <div class="form-group">
               <label>Tracks:</label>
-              <input type="text" [ngModel]="playlist.tracks + ' utworów'" class="form-control" [disabled]="wartosc">
+              <input type="text" [ngModel]="selected.tracks + ' utworów'" class="form-control" [disabled]="wartosc">
             </div>
             <div class="form-group">
               <label>Color:</label>
-              <input type="color" [(ngModel)]="playlist.color" class="form-control">
+              <input type="color" [(ngModel)]="selected.color" class="form-control">
             </div>
             <div class="form-group">
               <label>
-                <input type="checkbox" [(ngModel)]="playlist.favourite">
+                <input type="checkbox" [(ngModel)]="selected.favourite">
                 Favourite
             </label>
             </div>
@@ -76,13 +77,11 @@
               <button class="btn btn-success float-xs-right" (click)="save($event)">Zapisz</button>
             </div>
         </div>
-
       </div>
 
-
+      </div>
     </div>
   </div>
-
 </div>
 
 
