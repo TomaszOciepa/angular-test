@@ -1,56 +1,23 @@
 <div class="row mt-1">
     <div class="col-xs">
         <h5>Playlisty</h5>
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nazwa</th>
-                <th scope="col">Utworów</th>
-                <th scope="col">Ulubiona</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let playlist of playlists; let i = index"
-              [ngClass]="{'table-active': selected == playlist, 'border-class': true}" 
-              (click)="select(playlist)"
-               [ngStyle]="getPlaylistStyle(playlist)">
-                <th scope="row">{{ i +1 }}.</th>
-                <td> {{ playlist.name }}</td>
-                <td> {{ playlist.tracks }}</td>
-                <td>
-                  <label>
-                    <input type="checkbox" [(ngModel)]="playlist.favourite" (click)="$event.stopPropagation();">
-                    Ulubiona
-                </label>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="form-group">
+
+        <playlists-list [selected]="selected" (selected)=" select($event) " [playlists]="playlists"></playlists-list>
+
+        <div class="form-group">
             <button class="btn btn-success float-xs-right" (click)="createNew($event)">Nowa playlista</button>
-          </div>
+        </div>
     </div>
 
     <div class="col-xs">
-
       <div [ngSwitch]="mode">
-
+        
         <content-card title="Playlista" content="Wybierz playlistę!" *ngSwitchDefault></content-card>
+       
+        <playlists-detail (editPlaylist)="edit($event)" [playlist]="selected" *ngSwitchCase="'selected'"></playlists-detail>
 
-        <div class="card" *ngSwitchCase="'selected'">
-          <div class="card-body">
-            <h5 class="card-title">Playlista {{ selected.name}}</h5>
-            <p class="card-text">Wybrana playlista</p>
-
-            <div class="form-group">
-              <button class="btn btn-success float-xs-right" (click)="edit(selected)">Edytuj</button>
-            </div>
-          </div>
-        </div>
-
-       <play-list-form wartosc="wartosc" [playlist]="selected" *ngSwitchCase="'edit'"></play-list-form>
+        <play-list-form wartosc="wartosc" [playlist]="selected" *ngSwitchCase="'edit'"></play-list-form>
 
       </div>
-      </div>
+    </div>
 </div>

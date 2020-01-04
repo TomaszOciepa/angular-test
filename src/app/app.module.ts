@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { ContentCardComponent } from './playlists/content-card.component';
 import { PlayListFormComponent } from './playlists/play-list-form.component';
+import { PlaylistsListComponent } from './playlists/playlists-list.component';
+import { PlaylistsDetailComponent } from './playlists/playlists-detail.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { PlayListFormComponent } from './playlists/play-list-form.component';
     AppComponent,
     PlaylistsComponent,
     ContentCardComponent,
-    PlayListFormComponent
+    PlayListFormComponent,
+    PlaylistsListComponent,
+    PlaylistsDetailComponent
   ],
   imports: [
     BrowserModule,

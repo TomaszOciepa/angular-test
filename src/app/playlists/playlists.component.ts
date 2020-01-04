@@ -26,14 +26,7 @@ export class PlaylistsComponent implements OnInit {
 
   }
 
-  getPlaylistStyle(playlist){
-    return {
-      // borderBottom: '2px solid transparent',
-      borderBottomStyle: 'solid',
-      borderBottomColor: playlist.color,
-      borderBottomWidth: '4px'
-    }
-  }
+
 
   mode = "none"
 
