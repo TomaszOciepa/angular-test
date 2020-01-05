@@ -6,12 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{ title }}</h5>
-        <p class="card-text">{{ text }}</p>
+        <ng-content></ng-content>
       </div>
     </div>
   `,
   // inputs:[
-  //   'title',
+  //   'title',   
   //   'text:content'
   // ],
   styles: [],
@@ -25,8 +25,8 @@ export class ContentCardComponent implements OnInit {
   @Input()
   title = '';
   
-  @Input('content')
-  text = ''
+  // @Input('content')
+  // text = ''
   constructor() { }
 
   ngOnInit() {

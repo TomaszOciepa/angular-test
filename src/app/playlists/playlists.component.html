@@ -12,12 +12,18 @@
     <div class="col-xs">
       <div [ngSwitch]="mode">
         
-        <content-card title="Playlista" content="Wybierz playlistę!" *ngSwitchDefault></content-card>
-       
-        <playlists-detail (editPlaylist)="edit($event)" [playlist]="selected" *ngSwitchCase="'selected'"></playlists-detail>
+        <content-card title="Playlista" *ngSwitchDefault>
+          <p>Wybierz <b>playlistę!</b></p>
 
-        <play-list-form wartosc="wartosc" [playlist]="selected" *ngSwitchCase="'edit'"></play-list-form>
-
+        </content-card>
+        
+        <content-card title="Playlista {{ selected.name }}"  *ngSwitchCase="'selected'">
+          <playlists-detail (editPlaylist)="edit($event)" [playlist]="selected"></playlists-detail>
+        </content-card>
+        
+        <content-card title="Playlista {{ selected.name }} - edycja"  *ngSwitchCase="'edit'">
+          <play-list-form wartosc="wartosc" [playlist]="selected"></play-list-form>
+        </content-card>
       </div>
     </div>
 </div>
