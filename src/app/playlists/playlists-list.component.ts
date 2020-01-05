@@ -14,7 +14,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   </thead>
   <tbody>
     <tr *ngFor="let playlist of playlists; let i = index"
-    [ngClass]="{'table-active': selected == playlist, 'border-class': true}" 
+    [ngClass]="{'table-active': selected == playlist}" 
     (click)="select(playlist)"
      [ngStyle]="getPlaylistStyle(playlist)">
       <th scope="row">{{ i +1 }}.</th>

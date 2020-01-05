@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'play-list-form',
@@ -10,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
       </div>
       <div class="form-group">
         <label>Tracks:</label>
-        <input type="text" [ngModel]="playlist.tracks + ' utworów'" class="form-control" [disabled]="wartosc">
+        <input type="text" [ngModel]="playlist.tracks + ' utworów'" class="form-control" [disabled]="true">
       </div>
       <div class="form-group">
         <label>Color:</label>
@@ -24,7 +24,8 @@ import { Component, OnInit, Input } from '@angular/core';
       </div>
 
       <div class="form-group">
-        <button class="btn btn-success float-xs-right" (click)="save($event)">Zapisz</button>
+        <button class="btn btn-success float-xs-right"
+         (click)="save(playlist)">Zapisz</button>
       </div>
     </div>
   `,
@@ -34,9 +35,14 @@ export class PlayListFormComponent implements OnInit {
 
   @Input()
   playlist;
+  
+  @Output('saved')
+  onSave = new EventEmitter();
 
-  @Input()
-  wartosc;
+  save(playlist){
+    this.onSave.emit(playlist)
+  }
+
   constructor() { }
 
   ngOnInit() {
